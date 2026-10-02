@@ -10,16 +10,14 @@
 
 import type {RNTesterModuleExample} from '../../types/RNTesterTypes';
 
-import RNTesterText from '../../components/RNTesterText';
 import * as React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 function Playground() {
   return (
     <View style={styles.container}>
-      <RNTesterText>
-        Edit "RNTesterPlayground.js" to change this file
-      </RNTesterText>
+      {/* Android: falls back to the system font with no log. iOS logs "Unrecognized font family". */}
+      <Text style={styles.text}>This font family does not exist</Text>
     </View>
   );
 }
@@ -27,6 +25,9 @@ function Playground() {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+  },
+  text: {
+    fontFamily: 'FontFamilyThatDoesNotExist',
   },
 });
 
